@@ -1,8 +1,10 @@
 import basket from './image/basket.svg'
+import shevron from './image/shevron.svg'
 import './App.scss';
 import menu from './image/main/menu_icon.svg'
 import food from './image/main/food_icon.svg'
 import delivery from './image/main/delivery_icon.svg'
+import OrderBtn from './components/UI/button/order';
 
 function App() {
 	return (
@@ -15,8 +17,8 @@ function App() {
 						</a>
 						<div className="b-menu">
 							<a href="#" className='link' >О нас</a>
-							<a href="#" className='link' >Меню</a>
-							<a href="#" className='link'>Контакты</a>
+							<a href="#menu" className='link' >Меню</a>
+							<a href="#footer" className='link'>Контакты</a>
 							<div className="circle">
 								<img className='backet' src={basket} alt='корзина' />
 							</div>
@@ -32,15 +34,18 @@ function App() {
 							</div>
 							<div className="aboutUs-text"><p>Бесплатная доставка* вкусных, сытных и полезных обедов по-домашнему в офисы</p></div>
 							<div className="aboutUs-btns">
-								<a href='#' className="btn-order">Заказать звонок</a>
-								<a href='#' className="btn-menu">Меню</a>
+								<OrderBtn />
+								<a href='#menu' className="btn-menu">Меню</a>
 							</div>
 						</div>
 					</div>
 
 				</div>
+				<div className='button-bottom'>
+					<a className='shevron' href="#main" alt><img className='shevron-ico' src={shevron} alt="" /></a>
+				</div>
 			</div>
-			<div className="main">
+			<div id='main' className="main">
 				<div className="advantages">
 					<div className="container">
 						<div className="advantages-heading">
@@ -67,63 +72,39 @@ function App() {
 						</div>
 					</div>
 				</div>
-				<div className="menu">
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
-					<div>fksdjlfslkfj</div>
+				<div id='menu' className="menu">
+
 				</div>
 			</div>
 
-			<div className="footer">
-				<h2>Хотите сделать заказ? Есть вопросы?</h2>
-				<div className="footer-content">
-					<div className="content-input">
+			<div id='footer' className="footer">
+				<div className="container">
+					<div className="footer-content">
+						<div className="content-map">
+							<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A19daac01e2dd2036006603a5f5589a23bdd4ac6f478c0a2cefdbfaaaac48a62f&amp;source=constructor" width="658" height="495" frameborder="0"></iframe>
+						</div>
+						<div className="footer-info">
+							<div className="footer-contact">
+								<div className="contact-numbers">
+									<div>Время работы:</div>
+									<div>С 10:00 до 22:00</div>
+								</div>
 
-						<label htmlFor="">
-							<input type="text" />
-						</label>
+								<div className="contact-social">
 
-						<label htmlFor="">
-							<input type="text" />
-						</label>
+								</div>
+							</div>
+							<div className="footer-logo">
+								<a href="" className="info-logo">LOGO</a>
+							</div>
+							<p>*Бесплатная доставка при заказе от ХХХ рублей</p>
+						</div>
 					</div>
 
-					<div className="footer-contact">
-						<div className="contact-numbers">
-							<div>Время звонков:</div>
-						</div>
-
-						<div className="contact-social">
-							<p>Мы есть в:</p>
-						</div>
-					</div>
-
-					<div className="footer-info">
-						<div className="footer-logo">
-							<a href="" className="info-logo"></a>
-						</div>
-						<p>*Бесплатная доставка при заказе от ХХХ рублей</p>
-					</div>
 				</div>
-					
+				<div className="copyright">
+					сopyright © dushes 2021
+				</div>
 			</div>
 		</div>
 	);

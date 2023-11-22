@@ -14,6 +14,9 @@ a{text-decoration: none;}
     width: 1140px;
     margin: 0 auto;
 }
+html {
+    scroll-behavior: smooth
+}
 
 .App {
     font-family: 'Montserrat', sans-serif;
@@ -25,6 +28,16 @@ a{text-decoration: none;}
         background-size: 125%;
         background-position-x: left;
         height: 100svh;
+        .button-bottom {
+            display: flex;
+            justify-content: center;
+            margin-top: -70px;
+            .shevron {
+                .shevron-ico {
+                        cursor: pointer;
+                    }
+            }
+        }
         .navbar {
             width: 100vw;
             .menu {
@@ -69,15 +82,16 @@ a{text-decoration: none;}
         }
     }
     .aboutUs {
+        
         .aboutUs-info {
             display: flex;
             justify-content: center;
             flex-direction: column;
             align-items: start;
-            height: 94vh;
+            height: 94svh;
+            width: 460px;
             .aboutUs-title {
                 text-align: center;
-                max-width: 450px;
                 background-color: #2A2529;
                 font-size: 48px;
                 font-weight: 700;
@@ -91,7 +105,7 @@ a{text-decoration: none;}
                 }
             }
             .aboutUs-text {
-                width: 440px;
+
                 background-color: #2A2529;
                 font-size: 26px;
                 font-weight: 400;
@@ -105,19 +119,18 @@ a{text-decoration: none;}
                 }
             }
             .aboutUs-btns {
-                margin-top: 30px;
-                .btn-order {
-                    background-color: #CADA66;
-                    font-size: 26px;
-                    padding: 10px 50px;
-                    border-radius: 10px;
-                    margin-right: 15px;
-                }
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px; 
+                width: 460px;
                 .btn-menu {
+                    display: flex;
+                    align-items: center;
                     background-color: #EABC4E;
                     font-size: 26px;
                     padding: 10px 28px;
                     border-radius: 10px;
+                    color: black;
 
                 }
             }
@@ -127,6 +140,8 @@ a{text-decoration: none;}
 
   .main {
       .advantages {
+        display: flex;
+        flex-wrap: wrap;
         background-color: #2A2529;
         .advantages-heading {
             text-align: center;
@@ -168,6 +183,10 @@ a{text-decoration: none;}
             }
         }
     }
+    .menu {
+        background: url('./image/menu.png');
+        height: 100vh;
+    }
 
   }
 
@@ -177,6 +196,28 @@ a{text-decoration: none;}
   .footer {
     color: white;
     background-color:#2A2529;
-
+    h2 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #E6E2C5;
+        padding: 60px 0;
+    }
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 60px 0;
+        .content-map {
+            iframe {
+                border-radius: 10px;
+            }
+  
+        }
+    }
+    .copyright {
+        background-color: #1F1C1E;
+        text-align: center;
+        padding: 28px 0;
+    }
   }
 }
