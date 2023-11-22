@@ -93,10 +93,37 @@ function App() {
 			</div>
 
 			<div className="footer">
-				<a href='#' className="menu-logo">
-					logo
-				</a>
-				<div>Tel: 4823849273</div>
+				<h2>Хотите сделать заказ? Есть вопросы?</h2>
+				<div className="footer-content">
+					<div className="content-input">
+
+						<label htmlFor="">
+							<input type="text" />
+						</label>
+
+						<label htmlFor="">
+							<input type="text" />
+						</label>
+					</div>
+
+					<div className="footer-contact">
+						<div className="contact-numbers">
+							<div>Время звонков:</div>
+						</div>
+
+						<div className="contact-social">
+							<p>Мы есть в:</p>
+						</div>
+					</div>
+
+					<div className="footer-info">
+						<div className="footer-logo">
+							<a href="" className="info-logo"></a>
+						</div>
+						<p>*Бесплатная доставка при заказе от ХХХ рублей</p>
+					</div>
+				</div>
+					
 			</div>
 		</div>
 	);
