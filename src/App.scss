@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,700&display=swap');
+
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+html{height:100%}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
+table{border-collapse:collapse;border-spacing:0}
+a{text-decoration: none;}
+.container {
+    width: 1140px;
+    margin: 0 auto;
+}
+
+.App {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+    overflow: hidden;
+    .header {
+        background: url('./../../websiteForDelivery/src/image/header.png') no-repeat;
+        background-size: 125%;
+        background-position-x: left;
+        height: 100svh;
+        .navbar {
+            width: 100vw;
+            .menu {
+            display: flex;
+            justify-content: space-around;
+            background-color:#2A2529;
+            align-items: center;
+            .menu-logo {
+                color: white;
+                text-transform: uppercase;
+                font-size: 24px;
+            }
+            .b-menu {
+                display: flex;
+                align-items: center;
+                margin: 10px;
+                .link {
+                    color: #E6E2C5;
+                    padding: 0 25px;
+                    font-size: 20px;
+                    transition: 0.3s ease;
+                    &:hover {
+                        color: #EABC4E;
+                    }
+                }
+                .circle {
+                    background-color: #E6E2C5;
+                    border-radius: 100%;
+                    padding: 7px;
+                    transition: 0.3s ease;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #EABC4E;
+                    }
+                }
+                .backet {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+    .aboutUs {
+        .aboutUs-info {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: start;
+            height: 94vh;
+            .aboutUs-title {
+                text-align: center;
+                max-width: 450px;
+                background-color: #2A2529;
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 58px;
+                opacity: 0.7;
+                padding: 10px;
+                border-radius: 10px;
+                margin-bottom: 15px;
+                .title {
+                    color: white;
+                }
+            }
+            .aboutUs-text {
+                width: 440px;
+                background-color: #2A2529;
+                font-size: 26px;
+                font-weight: 400;
+                line-height: 31.69px;
+                opacity: 0.7;
+                padding: 15px;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                p {
+                    color: white;
+                }
+            }
+            .aboutUs-btns {
+                margin-top: 30px;
+                .btn-order {
+                    background-color: #CADA66;
+                    font-size: 26px;
+                    padding: 10px 50px;
+                    border-radius: 10px;
+                    margin-right: 15px;
+                }
+                .btn-menu {
+                    background-color: #EABC4E;
+                    font-size: 26px;
+                    padding: 10px 28px;
+                    border-radius: 10px;
+
+                }
+            }
+        }
+    }
+  }
+
+  .main {
+      .advantages {
+        background-color: #2A2529;
+        .advantages-heading {
+            text-align: center;
+            padding-top: 60px;
+            .advantages-title {
+                color: #E6E2C5 ;
+                line-height: 43px;
+                font-size: 36px;
+                font-weight: bold;
+            }
+        }
+        .advatage-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 70px 0;
+            .advantages-block {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+                color: #fff ;
+                img {
+                    width: 120px;
+                }
+                .advantages-block__title{
+                    font-size: 20px;
+                    font-weight: 700;
+                    padding: 10px 0;
+                }
+
+                .advantages-block__content{
+                    max-width: 340px;
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+
+  }
+
+
+
+
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    background-color:#2A2529;
+    align-items: center;
+  }
+}
