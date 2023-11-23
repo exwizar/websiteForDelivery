@@ -1,22 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,700&display=swap');
+@import './index.sass';
 
-
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
-html{height:100%}
-body{line-height:1}
-ol,ul{list-style:none}
-blockquote,q{quotes:none}
-blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
-table{border-collapse:collapse;border-spacing:0}
-a{text-decoration: none;}
-.container {
-    width: 1140px;
-    margin: 0 auto;
-}
-html {
-    scroll-behavior: smooth
-}
 
 .App {
     font-family: 'Montserrat', sans-serif;
@@ -25,9 +8,9 @@ html {
     overflow: hidden;
     .header {
         background: url('./../../src/image/header.png') no-repeat;
-        background-size: 125%;
+        background-size: 125% cover;
         background-position-x: left;
-        height: 100svh;
+        height: 100vh;
         .button-bottom {
             display: flex;
             justify-content: center;
@@ -43,10 +26,10 @@ html {
             .menu {
             display: flex;
             justify-content: space-around;
-            background-color:#2A2529;
+            background-color:$bg-1;
             align-items: center;
-            .menu-logo {
-                color: white;
+            .menu-logo {                                                            //navbar menu
+                color: $color-1;
                 text-transform: uppercase;
                 font-size: 24px;
             }
@@ -55,22 +38,22 @@ html {
                 align-items: center;
                 margin: 10px;
                 .link {
-                    color: #E6E2C5;
+                    color: $color-1;
                     padding: 0 25px;
                     font-size: 20px;
                     transition: 0.3s ease;
                     &:hover {
-                        color: #EABC4E;
+                        color: $hover-1;
                     }
                 }
                 .circle {
-                    background-color: #E6E2C5;
+                    background-color: $color-1;
                     border-radius: 100%;
                     padding: 7px;
                     transition: 0.3s ease;
                     cursor: pointer;
                     &:hover {
-                        background-color: #EABC4E;
+                        background-color: $hover-1;
                     }
                 }
                 .backet {
@@ -88,11 +71,12 @@ html {
             justify-content: center;
             flex-direction: column;
             align-items: start;
-            height: 94svh;
+            height: 94svh;                                      //хэдер основная страница
             width: 460px;
+            padding-left:20px;
             .aboutUs-title {
                 text-align: center;
-                background-color: #2A2529;
+                background-color: $bg-1;
                 font-size: 48px;
                 font-weight: 700;
                 line-height: 58px;
@@ -101,12 +85,12 @@ html {
                 border-radius: 10px;
                 margin-bottom: 15px;
                 .title {
-                    color: white;
+                    color: $color-2
                 }
             }
             .aboutUs-text {
 
-                background-color: #2A2529;
+                background-color: $bg-1;
                 font-size: 26px;
                 font-weight: 400;
                 line-height: 31.69px;
@@ -115,7 +99,7 @@ html {
                 border-radius: 10px;
                 margin-bottom: 20px;
                 p {
-                    color: white;
+                    color: $color-2;
                 }
             }
             .aboutUs-btns {
@@ -126,12 +110,11 @@ html {
                 .btn-menu {
                     display: flex;
                     align-items: center;
-                    background-color: #EABC4E;
+                    background-color: $hover-1;
                     font-size: 26px;
                     padding: 10px 28px;
                     border-radius: 10px;
                     color: black;
-
                 }
             }
         }
@@ -139,15 +122,17 @@ html {
   }
 
   .main {
+
+
       .advantages {
         display: flex;
-        flex-wrap: wrap;
-        background-color: #2A2529;
+        flex-wrap: wrap;                 //Почему мы
+        background-color: $bg-1;
         .advantages-heading {
             text-align: center;
             padding-top: 60px;
             .advantages-title {
-                color: #E6E2C5 ;
+                color: $color-1 ;
                 line-height: 43px;
                 font-size: 36px;
                 font-weight: bold;
@@ -157,6 +142,7 @@ html {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
             padding: 70px 0;
             .advantages-block {
                 display: flex;
@@ -164,7 +150,7 @@ html {
                 align-items: center;
                 flex-direction: column;
                 text-align: center;
-                color: #fff ;
+                color: $color-2; ;
                 img {
                     width: 120px;
                 }
@@ -194,12 +180,14 @@ html {
 
 
   .footer {
-    background-color:#2A2529;
+    background-color:$bg-1;
+    height: 100%;
     .footer-content {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         flex-direction: row;
         align-items: center;
+        flex-wrap: wrap;
         padding: 60px 0;
         .content-map {
             iframe {
@@ -209,12 +197,13 @@ html {
         }
     
         .location {
+            padding: 0 10px;
             .location-title {
                 margin-bottom: 30px;
                 h2 {
                     font-size: 36px;
                     font-weight: bold;
-                    color: #E6E2C5;
+                    color: $color-1;
                     padding-bottom: 10px;
                 }
                 
@@ -225,12 +214,12 @@ html {
                     font-size: 18px;
                     margin-bottom: 6px;
                     font-weight: 700;
-                    color: #E6E2C5;
+                    color: $color-1;
                 }
                 .address-info {
                     font-size: 16px;
                     font-weight: 400;
-                    color: #fff
+                    color: $color-2;
                 }
             }
 
@@ -240,7 +229,7 @@ html {
         background-color: #1F1C1E;
         text-align: center;
         padding: 28px 0;
-        color: white;
+        color: $color-2;
     }
   }
 }

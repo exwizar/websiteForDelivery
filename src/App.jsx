@@ -87,25 +87,25 @@ function App() {
 						<div className="location">
 							<div className="location-title"><h2>Наши контакты</h2></div>
 
-								<div className="location-info">
-									<h3 className='address-title'>Адрес</h3>
-									<div className='address-info'>Приморский край, г.Владивосток, ул.Гоголя 5</div>
-								</div>
-
-								<div className="location-info">
-									<h3 className='address-title'>Время работы</h3>
-									<div className='address-info'>Ежедневно с 12:00 до 23:00</div>
-								</div>	
-
-								<div className="location-info">
-									<h3 className='address-title'>Телефон</h3>
-									<a className='address-info' href="tel:+79001111111">+7(951) 312-12-42</a>
-								</div>		
-								<OrderBtn />
-
+							<div className="location-info">
+								<h3 className='address-title'>Адрес</h3>
+								<div className='address-info'>Приморский край, г. Владивосток, ул. Гоголя 5</div>
 							</div>
+
+							<div className="location-info">
+								<h3 className='address-title'>Время работы</h3>
+								<div className='address-info'>Ежедневно с 12:00 до 23:00</div>
+							</div>
+
+							<div className="location-info">
+								<h3 className='address-title'>Телефон</h3>
+								<a className='address-info' href="tel:+79001111111">+7(951) 312-12-42</a>
+							</div>
+							
+
 						</div>
 					</div>
+				</div>
 				<div className="copyright">
 					сopyright © dushes 2021
 				</div>
