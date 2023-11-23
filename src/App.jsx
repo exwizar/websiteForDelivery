@@ -1,30 +1,35 @@
 import basket from './image/basket.svg'
 import shevron from './image/shevron.svg'
 import './styles/App.scss';
+import './styles/AppMedia.scss'
 import menu from './image/main/menu_icon.svg'
 import food from './image/main/food_icon.svg'
 import delivery from './image/main/delivery_icon.svg'
 import OrderBtn from './components/UI/button/order';
+import { useState } from 'react';
+
 
 function App() {
+	const [nav, setNav] = useState(false);
 	return (
 		<div className="App">
 			<div className='header'>
 				<div className="navbar">
-					<div className='menu'>
+					<div className={nav ? 'menu active' : 'menu'}>
 						<a href='#' className="menu-logo">
 							logo
 						</a>
 						<div className="b-menu">
-							<a href="#" className='link' >О нас</a>
-							<a href="#menu" className='link' >Меню</a>
-							<a href="#footer" className='link'>Контакты</a>
+							<a onClick={() => setNav(false)} href="#" className='link' >О нас</a>
+							<a onClick={() => setNav(false)} href="#menu" className='link' >Меню</a>
+							<a onClick={() => setNav(false)} href="#footer" className='link'>Контакты</a>
 							<div className="circle">
 								<img className='backet' src={basket} alt='корзина' />
 							</div>
 						</div>
 					</div>
 				</div>
+				<div onClick={() => setNav(!nav)} className="burger-menu">Menu</div>
 
 				<div className="aboutUs">
 					<div className="container">
@@ -42,7 +47,7 @@ function App() {
 
 				</div>
 				<div className='button-bottom'>
-					<a className='shevron' href="#main" alt><img className='shevron-ico' src={shevron} alt="" /></a>
+					<a className='shevron' href="#main" ><img className='shevron-ico' src={shevron} alt="shevron" /></a>
 				</div>
 			</div>
 			<div id='main' className="main">
@@ -81,7 +86,7 @@ function App() {
 				<div className="container">
 					<div className="footer-content">
 						<div className="content-map">
-							<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A19daac01e2dd2036006603a5f5589a23bdd4ac6f478c0a2cefdbfaaaac48a62f&amp;source=constructor" width="600" height="400" frameborder="0"></iframe>
+							<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A19daac01e2dd2036006603a5f5589a23bdd4ac6f478c0a2cefdbfaaaac48a62f&amp;source=constructor" width="600" height="400" ></iframe>
 						</div>
 
 						<div className="location">
@@ -99,7 +104,7 @@ function App() {
 
 							<div className="location-info">
 								<h3 className='address-title'>Телефон</h3>
-								<a className='address-info' href="tel:+79001111111">+7(951) 312-12-42</a>
+								<a className='address-info' href="tel:+79001111111" alt='number'>+7(951) 312-12-42</a>
 							</div>
 							
 
