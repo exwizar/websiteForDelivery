@@ -204,10 +204,35 @@
             }
         }
 
-        .menu {
+        .cardProduct {
             background: url('../image/menu.png');
-            height: 100vh;
             background-size: cover;
+            z-index: 10;
+            position: relative;
+            .cats-container {
+             display: flex;   
+            }
+            .cats-block {
+                position: relative;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                overflow-x: auto;
+                overflow: hidden;
+                .cats-btns {
+                    .catlink {
+                    border: none;
+                    background-color: #CADA66;
+                    border-radius: 5px;
+                    font-size: 21px;
+                    white-space: nowrap;
+                    padding: 6px 25px;
+                  }
+                  .active {
+                    background-color: $color-1;
+                  }
+                }
+            }
         }
 
     }
@@ -276,6 +301,8 @@
             color: $color-2;
         }
     }
+
+ 
 }
 
 

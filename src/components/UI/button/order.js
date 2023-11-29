@@ -1,9 +1,9 @@
 import React from 'react'
 import './order.scss'
 
-const OrderBtn = () => {
+const OrderBtn = ({heading, onClick}) => {
   return (
-    <button className='btn-order'>Заказать звонок</button>
+    <button onClick = {onClick} className='btn-order'>Заказать звонок</button>
   )
 }
 
