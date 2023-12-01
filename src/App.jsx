@@ -1,5 +1,7 @@
 import basket from './image/basket.svg'
 import shevron from './image/shevron.svg'
+import prev from './image/prev.svg'
+import next from './image/next.svg'
 import './styles/App.scss';
 import './styles/AppMedia.scss'
 import menu from './image/main/menu_icon.svg'
@@ -18,8 +20,6 @@ function App() {
 
 	const [scrollPosition, setScrollPosition] = useState(0);
 	const containerRef = useRef();
-
-	console.log(scrollPosition)
   
 	async function createMenu(key) {
 		setCurrent(key)
@@ -137,7 +137,7 @@ function App() {
 				</div>
 				<div className="cardProduct">
 					<div className="container cats-container" >
-						<button onClick={() => handleScrollLeft(-200)}>back</button>
+					<div onClick={() => handleScrollLeft(-200)}><img style={{'height': '50px'}} src={prev} alt='next' /></div>
 						<div className="cats-block" ref={containerRef}>
 							{btns.map((item, index) => {
 								return (
@@ -147,7 +147,7 @@ function App() {
 								)
 							})}
 						</div>
-							<button onClick={() => handleScrollRight(200)}>next</button>
+							<div onClick={() => handleScrollRight(200)}><img style={{'height': '50px'}} src={next} alt='next' /></div>
 					</div>
 
 					<div className="manuInfo-block">
