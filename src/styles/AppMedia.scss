@@ -1,5 +1,9 @@
 @import './index.sass';
 
+@media  (max-width:1316px) {
+
+    .App .main .cardProduct .menuInfo .menuInfo-block {display: flex; justify-content: center;}
+}
 @media  (max-width:1024px) {
     .footer {
         iframe {
@@ -91,3 +95,4 @@
         }
     }
 }
+

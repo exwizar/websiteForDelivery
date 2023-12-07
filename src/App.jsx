@@ -8,7 +8,7 @@ import menu from './image/main/menu_icon.svg'
 import food from './image/main/food_icon.svg'
 import delivery from './image/main/delivery_icon.svg'
 import OrderBtn from './components/UI/button/order';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 
 function App() {
@@ -17,10 +17,82 @@ function App() {
 	const [btns, setBtns] = useState([])
 	const [menuInfo, setMenuInfo] = useState([])
 	const [current, setCurrent] = useState(null);
-
+	
 	const [scrollPosition, setScrollPosition] = useState(0);
 	const containerRef = useRef();
-  
+
+    const handleMouseDown = useCallback(e => {
+        const ele = containerRef.current;
+        if (!ele) {
+            return;
+        }
+        const startPos = {
+            left: ele.scrollLeft,
+            top: ele.scrollTop,
+            x: e.clientX,
+            y: e.clientY,
+        };
+
+        const handleMouseMove = e => {
+            const dx = e.clientX - startPos.x;
+            const dy = e.clientY - startPos.y;
+            ele.scrollTop = startPos.top - dy;
+            ele.scrollLeft = startPos.left - dx;
+            updateCursor(ele);
+        };
+
+        const handleMouseUp = () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+            resetCursor(ele);
+        };
+
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseup', handleMouseUp);
+    }, []);
+
+    const handleTouchStart = useCallback(e => {
+        const ele = containerRef.current;
+        if (!ele) {
+            return;
+        }
+        const touch = e.touches[0];
+        const startPos = {
+            left: ele.scrollLeft,
+            top: ele.scrollTop,
+            x: touch.clientX,
+            y: touch.clientY,
+        };
+
+        const handleTouchMove = e => {
+            const touch = e.touches[0];
+            const dx = touch.clientX - startPos.x;
+            const dy = touch.clientY - startPos.y;
+            ele.scrollTop = startPos.top - dy;
+            ele.scrollLeft = startPos.left - dx;
+            updateCursor(ele);
+        };
+
+        const handleTouchEnd = () => {
+            document.removeEventListener('touchmove', handleTouchMove);
+            document.removeEventListener('touchend', handleTouchEnd);
+            resetCursor(ele);
+        };
+
+        document.addEventListener('touchmove', handleTouchMove);
+        document.addEventListener('touchend', handleTouchEnd);
+    }, []);
+
+    const updateCursor = (ele) => {
+        ele.style.cursor = 'grabbing';
+        ele.style.userSelect = 'none';
+    };
+
+    const resetCursor = (ele) => {
+        ele.style.cursor = 'grab';
+        ele.style.removeProperty('user-select');
+    };
+
 	async function createMenu(key) {
 		setCurrent(key)
 		setMenuInfo([])
@@ -32,41 +104,22 @@ function App() {
 
 	async function createBtns() {
 		setBtns([])
-		for (let i = 0; i <= 9; i++) {
+
+		for (let i = 0; i <= 9 ; i++) {
 			await fetch(`http://admin/api/?param=${i}`)
 				.then(res => res.json())
 				.then(res => setBtns((btns) => ([...btns, res.name])))
 		}
 	}
 
-	const handleScrollLeft = (scrollAmount) => {
-		if(scrollPosition <= 0) {
-			return setScrollPosition(0)
-		}
-		const newScrollPosition = scrollPosition + scrollAmount;
-	  
-		setScrollPosition(newScrollPosition);
-	  
-		containerRef.current.scrollLeft = newScrollPosition;
-		
-	  };
-
-	  const handleScrollRight = (scrollAmount) => {
-		if(scrollPosition >= 800) {
-			return setScrollPosition(800)
-		}
-		const newScrollPosition = scrollPosition + scrollAmount;
-	  
-		setScrollPosition(newScrollPosition);
-	  
-		containerRef.current.scrollLeft = newScrollPosition;
-		
+	const scroll = (scrollOffset) => {
+		containerRef.current.scrollLeft += scrollOffset;
 	  };
 
 	useEffect(() => {
 		createBtns()
 		createMenu(0)
-	}, []);
+	  },  []);
 
 
 	return (
@@ -137,8 +190,8 @@ function App() {
 				</div>
 				<div className="cardProduct">
 					<div className="container cats-container" >
-					<div onClick={() => handleScrollLeft(-200)}><img style={{'height': '50px'}} src={prev} alt='next' /></div>
-						<div className="cats-block" ref={containerRef}>
+						<img className='cats-tab' onClick={() =>scroll(-300)} style={{ 'height': '50px'}} src={prev} alt='next' />
+						<div ref={containerRef} onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} className="cats-block">
 							{btns.map((item, index) => {
 								return (
 									<div className="cats-btns">
@@ -147,13 +200,14 @@ function App() {
 								)
 							})}
 						</div>
-							<div onClick={() => handleScrollRight(200)}><img style={{'height': '50px'}} src={next} alt='next' /></div>
+						<img className='cats-tab' onClick={() =>scroll(300)} style={{ 'height': '50px' }} src={next} alt='next' />
 					</div>
 
-					<div className="manuInfo-block">
+					<div className="menuInfo">
 						<div className="container">
+							<div className="menuInfo-block">
 
-							{menuInfo.length <= 0 ?
+							{menuInfo.length === 0 ?
 								<div style={{ 'height': '100vh' }}>Идёт загрузка...</div>
 								:
 								menuInfo.map(item => {
@@ -161,21 +215,26 @@ function App() {
 										<div className="cardProduct-block">
 											<div className="cardProduct-img">
 												<img src={item.pic} alt="img" />
-											</div>
-											<div className="qty-block">
 												<div className="feature-weight">{item.weight} г.</div>
 											</div>
+											<div className="cardProduct-info">
+											
 
-											<div className='catProduct-name'>{item.name}</div>
-											<div className="catProduct-pay">
-												<div className="catProduct-description">{item.price}</div>
-												<button className="catProduct-btn">Добавить</button>
+												<div className='catProduct-name'>{item.name}</div>
+												<div className="qty-block">
+													<p className='feature-info'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, modi blanditiis. Eos fuga totam assumenda hic autem quisquam alias omnis vitae saepe.</p>
+												</div>
+												<div className="catProduct-pay">
+													<div className="catProduct-description">{item.price} ₽</div>
+													<button className="catProduct-btn">+ Добавить</button>
+												</div>
 											</div>
 
 										</div>
 									)
 								})
 							}
+							</div>
 						</div>
 					</div>
 
@@ -215,6 +274,7 @@ function App() {
 					сopyright © dushes 2021
 				</div>
 			</div>
+			
 		</div>
 	);
 }

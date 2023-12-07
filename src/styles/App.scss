@@ -210,27 +210,106 @@
             z-index: 10;
             position: relative;
             .cats-container {
-             display: flex;   
-            }
-            .cats-block {
-                position: relative;
                 display: flex;
-                align-items: center;
-                gap: 10px;
-                overflow-x: auto;
-                overflow: hidden;
-                .cats-btns {
-                    .catlink {
-                    border: none;
-                    background-color: #CADA66;
-                    border-radius: 5px;
-                    font-size: 21px;
-                    white-space: nowrap;
-                    padding: 6px 25px;
-                  }
-                  .active {
-                    background-color: $color-1;
-                  }
+                padding: 20px 0;
+                .cats-tab {
+                    cursor: pointer;
+                    background-color: $bg-card;
+                    border-radius: 100%;
+                }
+                .cats-block {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    transition: all 1s;
+                    overflow-x: scroll;
+                    overflow: hidden;
+                    .cats-btns {
+                        .catlink {
+                     border: none;
+                     background-color: #CADA66;
+                     border-radius: 5px;
+                     font-size: 21px;
+                     white-space: nowrap;
+                     padding: 6px 25px;
+                     cursor: pointer;
+                   }
+                   .active {
+                     background-color: $color-1;
+                   }
+                 }
+             }
+            }
+            .menuInfo {
+                padding: 40px 0;
+                .menuInfo-block {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 50px;
+                    .cardProduct-block {
+                        display: block;
+                        width: 400px;
+                        .cardProduct-img {
+                        
+                            img {
+                                display: block;
+                                width: 400px;
+                                height: 260px;
+                                border-radius: 5px;
+                            }
+                            .feature-weight {
+                                position: absolute;
+                                background-color: white;
+                                margin: -15px 0 0 15px;
+                                z-index: 2;
+                                width: 70px;
+                                text-align: center;
+                                border-radius: 10px;
+                                box-shadow: 0px 4px 7px rgba(0,0,0,.05);
+                            }
+                        }
+                        .cardProduct-info {
+                            color: $color-1;
+                            padding: 20px;
+                            background-color: $bg-1;
+                            border-radius: 5px;
+                            .catProduct-name {
+                                font-weight: 900;
+                                padding: 10px 0;
+                            }
+                            .qty-block {
+                                .feature-info {
+                                    font-size: 14px;
+                                    line-height: 15px;
+                                }
+                            }
+                            .catProduct-pay {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                padding: 20px 0;
+                                .catProduct-description {
+                                    font-weight: 700;
+                                    font-size: 24px;
+                                    white-space: nowrap;
+                                    line-height: 1;
+                                }
+                                .catProduct-btn {
+                                    background-color: $color-3;
+                                    border: none;
+                                    border-radius: 11px;
+                                    font-size: 17px;
+                                    color: black;
+                                    padding: 7px 24px;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
