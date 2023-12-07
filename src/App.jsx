@@ -21,6 +21,8 @@ function App() {
 	const [scrollPosition, setScrollPosition] = useState(0);
 	const containerRef = useRef();
 
+	//Move menu
+
     const handleMouseDown = useCallback(e => {
         const ele = containerRef.current;
         if (!ele) {
@@ -93,6 +95,8 @@ function App() {
         ele.style.removeProperty('user-select');
     };
 
+	//craete menu
+
 	async function createMenu(key) {
 		setCurrent(key)
 		setMenuInfo([])
@@ -101,6 +105,7 @@ function App() {
 			.then(res => setMenuInfo(res.menu))
 	}
 
+	//create btns
 
 	async function createBtns() {
 		setBtns([])
@@ -111,6 +116,8 @@ function App() {
 				.then(res => setBtns((btns) => ([...btns, res.name])))
 		}
 	}
+
+	// scroll onClick
 
 	const scroll = (scrollOffset) => {
 		containerRef.current.scrollLeft += scrollOffset;
@@ -188,7 +195,7 @@ function App() {
 						</div>
 					</div>
 				</div>
-				<div className="cardProduct">
+				<div className="cardProduct">                                     	
 					<div className="container cats-container" >
 						<img className='cats-tab' onClick={() =>scroll(-300)} style={{ 'height': '50px'}} src={prev} alt='next' />
 						<div ref={containerRef} onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} className="cats-block">
