@@ -9,6 +9,7 @@ import food from './image/main/food_icon.svg'
 import delivery from './image/main/delivery_icon.svg'
 import OrderBtn from './components/UI/button/order';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import Modal from './components/modal/Modal.jsx';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 	const [btns, setBtns] = useState([])
 	const [menuInfo, setMenuInfo] = useState([])
 	const [current, setCurrent] = useState(null);
+	const [modalActive, setModalActive] = useState(true)
 	
 	const [scrollPosition, setScrollPosition] = useState(0);
 	const containerRef = useRef();
@@ -103,6 +105,9 @@ function App() {
 		await fetch(`http://admin/api/?param=${key}`)
 			.then(res => res.json())
 			.then(res => setMenuInfo(res.menu))
+			.catch(res => {
+                <div>Ошибка</div>
+            })
 	}
 
 	//create btns
@@ -114,6 +119,9 @@ function App() {
 			await fetch(`http://admin/api/?param=${i}`)
 				.then(res => res.json())
 				.then(res => setBtns((btns) => ([...btns, res.name])))
+				.catch(res => {
+					<div>Ошибка</div>
+				})
 		}
 	}
 
@@ -131,6 +139,7 @@ function App() {
 
 	return (
 		<div className="App">
+			<Modal active={modalActive} setActive={setModalActive}/>
 			<div className='header'>
 				<div className="navbar">
 					<div className={nav ? 'menu active' : 'menu'}>
