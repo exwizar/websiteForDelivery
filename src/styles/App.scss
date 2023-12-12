@@ -252,8 +252,28 @@
                     .cardProduct-block {
                         display: block;
                         width: 400px;
+                        position: relative;
                         .cardProduct-img {
-                        
+                            .prewive{
+                                display: none;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 260px;
+                                padding: 15% 3%;
+                                box-sizing: border-box;
+                                font-size: 30px;
+                                font-weight: 900;
+                            }
+                            
+                            &:hover .prewive{
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                background: rgba(255, 255, 255, 0.3);
+                              cursor: pointer;
+                            }
                             img {
                                 display: block;
                                 width: 400px;
@@ -305,6 +325,13 @@
                                     color: black;
                                     padding: 7px 24px;
                                     cursor: pointer;
+                                    transition: 0.2s;
+                                    &:hover {
+                                        background-color: $color-1;
+                                    }
+                                    &:active {
+                                        background-color: $color-2;
+                                    }
                                 }
                             }
                         }

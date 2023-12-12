@@ -18,7 +18,7 @@ function App() {
 	const [btns, setBtns] = useState([])
 	const [menuInfo, setMenuInfo] = useState([])
 	const [current, setCurrent] = useState(null);
-	const [modalActive, setModalActive] = useState(true)
+	const [modalActive, setModalActive] = useState(false)
 	
 	const [scrollPosition, setScrollPosition] = useState(0);
 	const containerRef = useRef();
@@ -147,11 +147,11 @@ function App() {
 							logo
 						</a>
 						<div className="b-menu">
-							<a onClick={() => setNav(false)} href="#" className='link' >О нас</a>
+							<a onClick={() => setNav(false)} href="#main" className='link' >О нас</a>
 							<a onClick={() => setNav(false)} href="#menu" className='link' >Меню</a>
 							<a onClick={() => setNav(false)} href="#footer" className='link'>Контакты</a>
 							<div className="circle">
-								<img className='backet' src={basket} alt='корзина' />
+								<img className='backet' src={basket} alt='корзина' onClick={() => setModalActive(true)} />
 							</div>
 						</div>
 					</div>
@@ -204,7 +204,7 @@ function App() {
 						</div>
 					</div>
 				</div>
-				<div className="cardProduct">                                     	
+				<div id = 'menu' className="cardProduct">                                     	
 					<div className="container cats-container" >
 						<img className='cats-tab' onClick={() =>scroll(-300)} style={{ 'height': '50px'}} src={prev} alt='next' />
 						<div ref={containerRef} onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} className="cats-block">
@@ -230,6 +230,9 @@ function App() {
 									return (
 										<div className="cardProduct-block">
 											<div className="cardProduct-img">
+												<div class="prewive">
+													Подробнее
+												</div>
 												<img src={item.pic} alt="img" />
 												<div className="feature-weight">{item.weight} г.</div>
 											</div>
