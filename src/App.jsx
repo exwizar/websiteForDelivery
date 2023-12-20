@@ -235,9 +235,9 @@ function App() {
 													<div className='prewive-title'>Узнать подробнее</div>
 												</div>
 												<img src={item.pic} alt="img" />
-												<div className="feature-weight">{item.weight} г.</div>
 											</div>
 											<div className="cardProduct-info">
+												<div className="feature-weight">{item.weight} г.</div>
 											
 
 												<div className='catProduct-name'>{item.name}</div>
