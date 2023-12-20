@@ -263,15 +263,23 @@
                                 height: 260px;
                                 padding: 15% 3%;
                                 box-sizing: border-box;
-                                font-size: 30px;
+                                font-size: 15px;
                                 font-weight: 900;
+                                color: $color-2;
+                                .prewive-icon {
+                                    display:block;
+                                    background: url('../image/prewive.svg');
+                                    width: 50px;
+                                    height: 30px;
+                                }
                             }
                             
                             &:hover .prewive{
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
-                                background: rgba(255, 255, 255, 0.3);
+                                flex-direction: column;
+                                background: rgba(70, 70, 70, 0.4);
                               cursor: pointer;
                             }
                             img {

@@ -230,8 +230,9 @@ function App() {
 									return (
 										<div className="cardProduct-block">
 											<div className="cardProduct-img">
-												<div class="prewive">
-													Подробнее
+												<div className="prewive">
+												<div className="prewive-icon"></div>
+													<div className='prewive-title'>Узнать подробнее</div>
 												</div>
 												<img src={item.pic} alt="img" />
 												<div className="feature-weight">{item.weight} г.</div>
