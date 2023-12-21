@@ -7,7 +7,6 @@ import './styles/AppMedia.scss'
 import menu from './image/main/menu_icon.svg'
 import food from './image/main/food_icon.svg'
 import delivery from './image/main/delivery_icon.svg'
-import OrderBtn from './components/UI/button/order';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Modal from './components/modal/Modal.jsx';
 import FoodCard from './components/foodCard/FoodCard.jsx';

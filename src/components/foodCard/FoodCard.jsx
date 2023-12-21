@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import MoreDetailed from '../moreDetailed/MoreDetailed.jsx';
 import './foodCard.scss'
+import OrderBtn from '../UI/button/OrderBtn'
 
 const FoodCard = (item) => {
     const [moreDetailedAcitve, setMoreDetailedActive] = useState(false)
@@ -25,7 +26,7 @@ const FoodCard = (item) => {
         </div>
         <div className="catProduct-pay">
             <div className="catProduct-description">{food.price} ₽</div>
-            <button className="catProduct-btn">+ Добавить</button>
+            <OrderBtn item={item.item} />
         </div>
     </div>
 </div>
