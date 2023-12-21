@@ -10,7 +10,7 @@ import delivery from './image/main/delivery_icon.svg'
 import OrderBtn from './components/UI/button/order';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Modal from './components/modal/Modal.jsx';
-import MoreDetailed from './components/moreDetailed/MoreDetailed.jsx';
+import FoodCard from './components/foodCard/FoodCard.jsx';
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
 	const [menuInfo, setMenuInfo] = useState([])
 	const [current, setCurrent] = useState(null);
 	const [modalActive, setModalActive] = useState(false)
-	const [moreDetailedAcitve, setMoreDetailedActive] = useState(false)
+	
 	
 	const [scrollPosition, setScrollPosition] = useState(0);
 	const containerRef = useRef();
@@ -230,29 +230,7 @@ function App() {
 								:
 								menuInfo.map((item, index) => {
 									return (
-										<div key={index} className="cardProduct-block">
-											<MoreDetailed index={index} active={moreDetailedAcitve} setActive={setMoreDetailedActive}/>
-											<div className="cardProduct-img">
-												<div className="prewive" onClick={() => setMoreDetailedActive(true)}>
-												<div className="prewive-icon"></div>
-													<div className='prewive-title'>Узнать подробнее</div>
-												</div>
-												<img src={item.pic} alt="img" />
-											</div>
-											<div className="cardProduct-info">
-												<div className="feature-weight">{item.weight} г.</div>
-											
-
-												<div className='catProduct-name'>{item.name}</div>
-												<div className="qty-block">
-													<p className='feature-info'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, modi blanditiis. Eos fuga totam assumenda hic autem quisquam alias omnis vitae saepe.</p>
-												</div>
-												<div className="catProduct-pay">
-													<div className="catProduct-description">{item.price} ₽</div>
-													<button className="catProduct-btn">+ Добавить</button>
-												</div>
-											</div>
-										</div>
+										<FoodCard item={item} />
 									)
 								})
 							}
