@@ -10,6 +10,7 @@ import delivery from './image/main/delivery_icon.svg'
 import OrderBtn from './components/UI/button/order';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Modal from './components/modal/Modal.jsx';
+import MoreDetailed from './components/moreDetailed/MoreDetailed.jsx';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 	const [menuInfo, setMenuInfo] = useState([])
 	const [current, setCurrent] = useState(null);
 	const [modalActive, setModalActive] = useState(false)
+	const [moreDetailedAcitve, setMoreDetailedActive] = useState(false)
 	
 	const [scrollPosition, setScrollPosition] = useState(0);
 	const containerRef = useRef();
@@ -226,11 +228,12 @@ function App() {
 							{menuInfo.length === 0 ?
 								<div style={{ 'height': '100vh' }}>Идёт загрузка...</div>
 								:
-								menuInfo.map(item => {
+								menuInfo.map((item, index) => {
 									return (
-										<div className="cardProduct-block">
+										<div key={index} className="cardProduct-block">
+											<MoreDetailed index={index} active={moreDetailedAcitve} setActive={setMoreDetailedActive}/>
 											<div className="cardProduct-img">
-												<div className="prewive">
+												<div className="prewive" onClick={() => setMoreDetailedActive(true)}>
 												<div className="prewive-icon"></div>
 													<div className='prewive-title'>Узнать подробнее</div>
 												</div>
@@ -249,7 +252,6 @@ function App() {
 													<button className="catProduct-btn">+ Добавить</button>
 												</div>
 											</div>
-
 										</div>
 									)
 								})
