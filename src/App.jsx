@@ -14,7 +14,6 @@ import FoodCard from './components/foodCard/FoodCard.jsx';
 
 
 function App() {
-	const menuCall = 'Заказать звонок';
 	const [nav, setNav] = useState(false);
 	const [btns, setBtns] = useState([])
 	const [menuInfo, setMenuInfo] = useState([])
@@ -168,7 +167,7 @@ function App() {
 							</div>
 							<div className="aboutUs-text"><p>Бесплатная доставка* вкусных, сытных и полезных обедов по-домашнему в офисы</p></div>
 							<div className="aboutUs-btns">
-								<OrderBtn heading={menuCall} />
+								<a className='invite' href="">Сделать заказ</a>
 								<a href='#menu' className="btn-menu">Меню</a>
 							</div>
 						</div>

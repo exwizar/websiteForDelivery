@@ -1,11 +1,18 @@
-.btn-order {
-    width: max-content;
-    background-color: #CADA66;
-    font-size: 26px;
-    padding: 10px 50px;
-    border-radius: 10px;
-    margin-right: 15px;
-    border: none;
-    cursor: pointer;
-}
+@import '/src/styles/index.sass';
 
+.catProduct-btn {
+    background-color: $color-3;
+    border: none;
+    border-radius: 11px;
+    font-size: 17px;
+    color: black;
+    padding: 7px 24px;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+        background-color: $color-1;
+    }
+    &:active {
+        background-color: $color-2;
+    }
+}
