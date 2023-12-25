@@ -150,8 +150,8 @@ function App() {
 							<a onClick={() => setNav(false)} href="#main" className='link' >О нас</a>
 							<a onClick={() => setNav(false)} href="#menu" className='link' >Меню</a>
 							<a onClick={() => setNav(false)} href="#footer" className='link'>Контакты</a>
-							<div className="circle">
-								<img className='backet' src={basket} alt='корзина' onClick={() => setModalActive(true)} />
+							<div className="circle" onClick={() => setModalActive(true)}>
+								<img className='backet' src={basket} alt='корзина' />
 							</div>
 						</div>
 					</div>
